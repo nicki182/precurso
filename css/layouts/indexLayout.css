@@ -1,0 +1,46 @@
+@import url('../general/colors.css');
+.card {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 20vh;
+}
+
+.page-wrapper {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-image {
+  cursor: pointer;
+  height: 20rem;
+  width:20rem;
+  clip-path: circle(50%);
+  box-shadow:var(--boxShadoxCard);
+}
+.info{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  grid-gap:5rem;
+}
+.profile-image:hover { 
+  animation: clip 5s ease;
+}
+
+@keyframes clip{
+  0%{
+    clip-path: circle(50%);
+  }
+  50%{
+    clip-path: circle(35%);
+  }
+  100%{
+    clip-path: circle(50%);
+  }
+}

@@ -1,0 +1,85 @@
+@import url('../general/colors.css');
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:31.25rem;
+    width:31.5rem;
+}
+.mapouter{
+    height: 40rem;
+    width: 40rem;
+    background-color: var(--contrastColor);
+    border-radius: 10%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cardNext{
+        height: 15rem;
+        width: 15rem;
+        border-radius: 10%;
+        box-shadow: var(--boxShadoxCard);
+        background-color: var(--contrastColor);
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.citySection{
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: center;
+}
+.next1{
+        transform: translate(10vw,0px);
+        animation: next1 2s ease;
+}
+.next2Intial{
+    transform: translate(-36vw, 0px);
+}
+.next3Intial{
+    transform: translate(-54vw, 0px);
+}
+.next2Final{
+    transform: translate(20vw, 0px);
+    animation: next2 4s ease;
+}
+.next3Final{
+    transform: translate(30vw, 0px);
+    animation: next3 6s ease;
+}
+.buttons{
+    color: var(--textColor);
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    flex-direction: row;
+}
+@keyframes next1 {
+    from{
+        transform: translate(-36vw, 0px); 
+    }
+    to{
+        transform: translate(10vw,0px); 
+    }
+}
+@keyframes next2 {
+    from{
+        transform: translate(-36vw, 0px); 
+    }
+    to{
+        transform: translate(20vw,0px); 
+    }
+}
+@keyframes next3 {
+    from{
+        transform: translate(-54vw, 0px); 
+    }
+    to{
+        transform: translate(30vw,0px); 
+    }
+}

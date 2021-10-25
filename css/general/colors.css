@@ -1,0 +1,10 @@
+:root{
+--darkModeBackgroud:linear-gradient(0deg, rgba(10,54,103,1) 0%, rgba(116,66,121,1) 57%);
+--lightModeBackground:linear-gradient(0deg, rgba(255,252,71,1) 0%, rgba(237,122,29,1) 57%);  
+--contrastColor:#7A0029;
+--contrastColorLight:#f6cb3c;
+--contrastColorDark:#bb0b46b4;
+--textColor:#ffff;
+--black:#000;
+--boxShadowCard: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}

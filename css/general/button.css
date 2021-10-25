@@ -1,0 +1,10 @@
+@import url('./colors.css');
+.citiesButton{
+    height: 2rem;
+    width: 5rem;
+    background-color:var(--white) ;
+    color:var(--black) ;
+    border-radius: 10%;
+    box-shadow: var(--boxShadowCard);
+    border: none;
+}
