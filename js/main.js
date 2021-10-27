@@ -1,18 +1,17 @@
 //replace with your user:
 const GITHUB_URL = "https://api.github.com/users/nicki182";
 fetch(GITHUB_URL)
-  .then(function(response) {
+  .then((response)=> {
     return response.json();
   })
-  .then(function (data) {
+  .then((data)=> {
     const profileImage = document.getElementById("profile-image");
     profileImage.src = data.avatar_url;
   });
-
   /*Initial variables*/
   let mode;
   let runningAnimation=false;
-  function animationBackgroundChange(){
+  const animationBackgroundChange=()=>{
         
     let mode=getMode();
 
@@ -26,29 +25,29 @@ fetch(GITHUB_URL)
     changeBackgroud(mode);
 
   }
-  function changeBackgroud(mode){
+  const changeBackgroud=(mode)=>{
     if(!runningAnimation) runAnimation(mode)
   }
 
-  function runAnimation(mode){
+  const runAnimation=(mode)=>{
     setRunningAnimation(true)
     setProfileImageCursor('auto');
     setModeFade(mode)
     window.requestAnimationFrame(fadeOut)
   }
 
-  function finishAnimationFadeIn(){
+  const finishAnimationFadeIn=()=>{
     setOriginalStateFadeIn()
     setRunningAnimation(false);
     setProfileImageCursor('pointer')
    }
   
-   function finishAnimationFadeOut(){
+   const finishAnimationFadeOut=()=>{
     setOriginalStateFadeOut(); 
     getMoreFramesFadeIn(0);
    }
   
-    function fadeIn(timestamp) {
+    const fadeIn=(timestamp)=> {
   
       let start=getStart();
   
@@ -70,7 +69,8 @@ fetch(GITHUB_URL)
       setNewOpacityIn();
   }
   
-  function fadeOut(timestamp) {
+  const fadeOut=(timestamp)=> {
+
     let start=getStart();
   
     const animationTime=getAnimationTime();
@@ -100,47 +100,39 @@ fetch(GITHUB_URL)
 
   /*Seter functions*/
 
-  function setProfileImageCursor(cursor){
+  const setProfileImageCursor=(cursor)=>{
     setElementByIdCursor(cursor,'profile-image');
   }
 
-  function setRunningAnimation(run){
+  const setRunningAnimation=(run)=>{
     runningAnimation=run;
   }
 
-  function setAnimationTime(time){
+  const setAnimationTime=(time)=>{
     animationTime=time
   }
 
-  function setModeFade(m){
+  const setModeFade=(m)=>{
     mode=m
   }
 
-  function setOpacityChangeBy(opacity){
+  const setOpacityChangeBy=(opacity)=>{
     opacityChangeBy=opacity
   }
 
-  function setPreviousTimeStamp(prev){
+  const setPreviousTimeStamp=(prev)=>{
     previousTimeStamp=prev;
   }
 
-  function setOpacity(opa){
+  const setOpacity=(opa)=>{
     opacity=opa
   }
 
-  function setStart(st){
+  const setStart=(st)=>{
     start=st
   }
 
-  function setPreviousTimeStamp(prev){
-    previousTimeStamp=prev;
-  }
-
-  function setStart(st){
-    start=st
-  }
-
-  function setNewOpacityIn(){
+  const setNewOpacityIn=()=>{
 
     const opacity=getOpacity();
 
@@ -151,7 +143,7 @@ fetch(GITHUB_URL)
     setOpacity(newOpacity)
   }
 
-  function setNewOpacityOut(){
+  const setNewOpacityOut=()=>{
 
     const opacity=getOpacity();
 
@@ -162,39 +154,35 @@ fetch(GITHUB_URL)
     setOpacity(newOpacity)
   }
 
-  function setBackground(background){
-    document.body.style.background=background
-  }
-
-  function setBackgroundToFadeInMore(){
+  const setBackgroundToFadeInMore=()=>{
     /*Set background color with diferent opacity*/
     const opacity=getOpacity();
     setBackground(getBackgroudOpacity(mode==='dark'?'light':'dark',opacity))
   }
 
-  function setBackgroundToFadeOutMore(){
+  const setBackgroundToFadeOutMore=()=>{
     /*Set background color with diferent opacity*/
     const opacity=getOpacity();
     setBackground(getBackgroudOpacity(mode,opacity))
   }
 
-  function setOriginalStateFadeIn(){
+  const setOriginalStateFadeIn=()=>{
     setStart(0)
     setPreviousTimeStamp(0)
   }
 
-  function setOriginalStateFadeOut(){
+  const setOriginalStateFadeOut=()=>{
     setStart(0)
     setPreviousTimeStamp(0)
   }
 
   /*Geter functions*/
-  function getMoreFramesFadeOut(timestamp){
+  const getMoreFramesFadeOut=(timestamp)=>{
     setPreviousTimeStamp(timestamp)
     window.requestAnimationFrame(fadeOut);
   }
 
-  function getMoreFramesFadeIn(timestamp){
+  const getMoreFramesFadeIn=(timestamp)=>{
     setPreviousTimeStamp(timestamp)
     window.requestAnimationFrame(fadeIn);
   }
@@ -220,8 +208,8 @@ fetch(GITHUB_URL)
   }
 
  function getBackgroudOpacity(mode,opacity){
-   if(mode === 'light') return  `linear-gradient(0deg, rgba(255,252,71,${opacity}) 0%, rgba(237,122,29,${opacity}) 57%)`
-   return `linear-gradient(0deg, rgba(10,54,103,${opacity}) 0%, rgba(116,66,121,${opacity}) 57%)`
+   if(mode === 'light') return  compile(lightModeColor,{opacity})
+   return compile(darkModeColor,{opacity})
  }
 
  function isFadingInMore(timestamp){

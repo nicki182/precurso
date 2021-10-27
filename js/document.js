@@ -1,27 +1,38 @@
-function setBackground(background){
+const lightModeColor='linear-gradient(0deg, rgba(255,252,71,{{opacity}}) 0%, rgba(237,122,29,{{opacity}}) 57%)'
+const darkModeColor='linear-gradient(0deg, rgba(10,54,103,{{opacity}}) 0%, rgba(116,66,121,{{opacity}}) 57%)'
+
+const setBackground=(background)=>{
     document.body.style.background=background
   }
 
-function setElementByIdCursor(cursor,elementId){
+const setElementByIdCursor=(cursor,elementId)=>{
     document.getElementById(elementId).style.cursor=cursor
   }
-  function addElementByIdClass(className,elementId){
+const addElementByIdClass=(className,elementId)=>{
     document.getElementById(elementId).classList.add(className)
   }
 
-  function removeElementByIdClass(className,elementId){
+const removeElementByIdClass=(className,elementId)=>{
     document.getElementById(elementId).classList.remove(className)
   }
 
-  function setElementByIdSrc(src,elementId){
+const setElementByIdSrc=(src,elementId)=>{
       document.getElementById(elementId).src=src
   }
 
-  function setElementByIdDisplay(display,elementId){
+const setElementByIdDisplay=(display,elementId)=>{
       document.getElementById(elementId).style.display=display
   }
 
-function setBackgroundByMode(mode){
-    if(mode === 'light') setBackground('linear-gradient(0deg, rgba(255,252,71,1) 0%, rgba(237,122,29,1) 57%)')
-    else setBackground('linear-gradient(0deg, rgba(10,54,103,1) 0%, rgba(116,66,121,1) 57%)')
+const setBackgroundByMode=(mode)=>{
+    if(mode === 'light') setBackground(compile(lightModeColor,{opacity:1}))
+    else setBackground(compile(darkModeColor,{opacity:1}))
 }  
+
+const setElementByIdInnerText=(elementId,innerText)=>{
+  document.getElementById(elementId).innerText=innerText
+}
+
+const setPropetyValue=()=>{
+  
+}

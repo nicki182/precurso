@@ -20,7 +20,7 @@ function moveNext3(){
 
 
 function setCity(city){
-    const url=cityURL[city]
+    const url=_.get(cityURL,city,'')
     setElementByIdSrc(url,"gmap_canvas")
 }
 
