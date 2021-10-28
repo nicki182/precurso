@@ -1,5 +1,5 @@
-const lightModeColor='linear-gradient(0deg, rgba(255,252,71,{{opacity}}) 0%, rgba(237,122,29,{{opacity}}) 57%)'
-const darkModeColor='linear-gradient(0deg, rgba(10,54,103,{{opacity}}) 0%, rgba(116,66,121,{{opacity}}) 57%)'
+const lightModeColor='linear-gradient(0deg, rgba(255,252,71,${opacity}) 0%, rgba(237,122,29,${opacity}) 57%)'
+const darkModeColor='linear-gradient(0deg, rgba(10,54,103,${opacity}) 0%, rgba(116,66,121,${opacity}) 57%)'
 
 const setBackground=(background)=>{
     document.body.style.background=background
@@ -33,6 +33,6 @@ const setElementByIdInnerText=(elementId,innerText)=>{
   document.getElementById(elementId).innerText=innerText
 }
 
-const setPropetyValue=()=>{
-  
+const setPropetyValue=(property,value)=>{
+  document.documentElement.style.setProperty(property,value)
 }

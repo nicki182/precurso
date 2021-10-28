@@ -5,8 +5,7 @@ fetch(GITHUB_URL)
     return response.json();
   })
   .then((data)=> {
-    const profileImage = document.getElementById("profile-image");
-    profileImage.src = data.avatar_url;
+    setElementByIdSrc(data.avatar_url,'profile-image');
   });
   /*Initial variables*/
   let mode;
@@ -187,19 +186,19 @@ fetch(GITHUB_URL)
     window.requestAnimationFrame(fadeIn);
   }
 
-  function getOpacity(){
+  const getOpacity=()=>{
     return opacity
   }
 
-  function getOpacityChangeBy(){
+  const getOpacityChangeBy=()=>{
     return opacityChangeBy
   }
 
-  function getStart(){
+  const getStart=()=>{
     return start 
   }
 
-  function getAnimationTime(){
+  const getAnimationTime=()=>{
     return animationTime
   }
 
