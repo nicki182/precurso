@@ -4,32 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/layouts/contactLayout.css" rel="stylesheet" />
+    <link href="../css/layouts/layout.css" rel="stylesheet" />
+    <link href="../css/general/inputs.css" rel="stylesheet" />
+    <link href="../css/general/text.css" rel="stylesheet" />
+    <link href="../css/general/button.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://use.fontawesome.com/d4bc4843e4.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div>Contact Page</div>
-    <div>
+  <nav class="navigation">
+    <a href="../index.html"  class="nav-item">Home</a>
+    <a href="./about.html" class="nav-item">About</a>
+    <a style="cursor: pointer;" class="nav-item">Contact</a>
+    </nav>
+    <div style="display:flex;justify-content:center">
+    <div class="sectionContainer">
+      <div class="titleCard" style="margin-top: 1rem;">
+      <h1>Contact form</h1>
+      <p>Please fill out this form and you will be contated soon enough</p>
+</div>
       <form 
       action="https://formspree.io/f/xbjqebaa"
       method="POST">
-        <label></label><intput/>
-        <label></label><intput/>
-        <label class="labelForm">Lenguajes:</label>
-      <input name="checkboxE" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" type="checkbox" id="exampleCheckbox1" value="1"></input>
+      <div class="formContainer">
+            <label class="labelForm">First Name:</label>
+            <input name="inputName" class="inputForm" onchange="return validateInput()" id="nameExample" placeholder="Name..." ></input>
+            <label class="labelForm">Last Name:</label>
+            <input name="exampleInput" class="inputForm" onchange="return validateInput()" id="nameExample" placeholder="Last Name..." ></input>
+            <label>Add a coment</label><textarea class="textAreaForm" placeholder="Type Here..."></textarea>
+            
+        <label class="labelForm">Lenguajes:</label><div class="checkBoxForm">
+      <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" type="checkbox" id="exampleCheckbox1" value="1"></input>
       <label for="exampleCheckbox1" >Checkbox 1</label>
       <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" id="exampleCheckbox2" type="checkbox" value="2"></input>
       <label for="exampleCheckbox3" >Checkbox 2</label>
       <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" id="exampleCheckbox3" type="checkbox" value="3"></input>
-      <label for="exampleCheckbox3" >Checkbox 3</label>
-      <button type="submit">Submit</button>
-      </form>
-    </div>
+      <label for="exampleCheckbox3" >Checkbox 3</label></div>
+      <div style="display: flex; justify-content: center;margin-top: 1rem;">
+      <button disabled="true" class="submitButton" type="submit">Submit</button></div>
+     </div> </form>
+    </div></div>
+    <footer>
+      <div id='footerText'></div>
+    </footer>
     <script src="../js/generic/storage.js"></script>
         <script src="../js/generic/document.js"></script>
         <script src="../js/pages/about.js"></script>
         <script src="../js/generic/compiler.js"></script>
+        <script src="../js/generic/constanst.js"></script>
+        <script src="../js/generic/footer.js"></script>
     <script>
         let initialMode=getMode()
         if(!initialMode){

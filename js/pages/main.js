@@ -5,7 +5,8 @@ fetch(GITHUB_URL)
     return response.json();
   })
   .then((data)=> {
-    setElementByIdSrc(data.avatar_url,'profile-image');
+    const profileImage=getElementById('profile-image')
+    setElementByIdSrc(data.avatar_url,profileImage);
   });
   /*Initial variables*/
   let mode;
@@ -100,7 +101,8 @@ fetch(GITHUB_URL)
   /*Seter functions*/
 
   const setProfileImageCursor=(cursor)=>{
-    setElementByIdCursor(cursor,'profile-image');
+    const profileImage=getElementById('profile-image')
+    setElementByIdCursor(cursor,profileImage);
   }
 
   const setRunningAnimation=(run)=>{

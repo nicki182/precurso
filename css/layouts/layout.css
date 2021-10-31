@@ -20,6 +20,7 @@
     position: fixed;
     z-index: 1;
   }
+  
   .nav-item {
     padding: 1rem;
     align-self: center;
@@ -32,9 +33,4 @@
 }
 .nav-item:hover{
   background-color: #bb0b46b4;
-}
-.title-card{
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
 }

@@ -1,52 +1,52 @@
-function moveNext2(){
-    removeElementByIdClass('next2Initial','next_2')
-    addElementByIdClass('next2Final','next_2')
-}
 var i=0;
 
-const cities=['BUENOS_AIRES','AVENTURA','PARIS','PINSK']
-
-const cityURL={
-    BUENOS_AIRES:'https://maps.google.com/maps?q=ciudad%20de%20buenos%20aires&t=&z=11&ie=UTF8&iwloc=&output=embed',
-    AVENTURA:"https://maps.google.com/maps?q=florida,aventura&t=&z=13&ie=UTF8&iwloc=&output=embed",
-    PARIS:'https//maps.google.com/maps?q=PARIS,france&t=&z=13&ie=UTF8&iwloc=&output=embed',
-    PINSK:"https://maps.google.com/maps?q=PINSK&t=&z=13&ie=UTF8&iwloc=&output=embed"
+const moveNext2=()=>{
+    const elementNext2=getElementById('next_2')
+    removeElementClass('next2Initial',elementNext2)
+    addElementClass('next2Final',elementNext2)
 }
 
-function moveNext3(){
-    removeElementByIdClass('next3Initial','next_3')
-    addElementByIdClass('next3Final','next_3')
+const moveNext3=()=>{
+    const elementNext3=getElementById('next_3')
+    removeElementClass('next3Initial',elementNext3)
+    addElementClass('next3Final',elementNext3)
 }
 
 
-function setCity(city){
+const setCity=(city)=>{
     const url=_.get(cityURL,city,'')
-    setElementByIdSrc(url,"gmap_canvas")
+    const maps=getElementById('gmap_canvas')
+    setElementSrc(url,maps)
 }
 
-function takeOutNextButton(){
-    setElementByIdDisplay('none','next_button')
+const takeOutNextButton=()=>{
+     const nextButton=getElementById('next_button')
+     setElementDisplay('none',nextButton)
 }
 
-function takeOutPreviousButton(){
-    setElementByIdDisplay('none','previous_button')
+const takeOutPreviousButton=()=>{
+ const prevButton=getElementById('previous_button')    
+ setElementDisplay('none',prevButton)
 }
 
-function bringBackNextButton(){
-    setElementByIdDisplay('block','next_button')
+const bringBackNextButton=()=>{
+    const nextButton=getElementById('next_button')
+    setElementDisplay('block',nextButton)
 }
 
-function bringBackPreviousButton(){
-    setElementByIdDisplay('block','previous_button')
+const bringBackPreviousButton=()=>{
+    const prevButton=getElementById('previous_button') 
+    setElementDisplay('block',prevButton)
 }
 
-function nextCity(){
+
+const nextCity=()=>{
     i++;
     setCity(cities[i]);
     if(i===cities.length-1) takeOutNextButton()
     else if(i===1) bringBackPreviousButton()
 }
-function previousCity(){
+const previousCity=()=>{
     i--;
     setCity(cities[i]);
     if(i===0) takeOutPreviousButton()

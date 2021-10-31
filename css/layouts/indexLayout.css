@@ -4,7 +4,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-margin-top: 20vh;
 }
 
 .page-wrapper {
@@ -31,6 +30,11 @@ margin-top: 20vh;
 }
 .profile-image:hover { 
   animation: clip 5s ease;
+}
+.title-card{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 @keyframes clip{

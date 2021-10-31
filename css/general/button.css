@@ -8,12 +8,12 @@
     box-shadow: var(--boxShadowCard);
     border: none;
 }
-.submitButton{
-    height: 3rem;
-    width: 10rem;
-    background-color:var(--white) ;
-    color:var(--black) ;
-    border-radius: 10%;
-    box-shadow: var(--boxShadowCard);
-    border: none;
-}
+    .submitButton {
+        height: 2rem;
+        width: 15rem;
+        background-color: var(--white);
+        color: var(--black);
+        border-radius: 3%;
+        box-shadow: var(--boxShadowCard);
+        border: none;
+    }

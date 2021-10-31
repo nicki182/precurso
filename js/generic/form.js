@@ -1,31 +1,42 @@
-const errorColor=''
-function validateInput(elementIdInput,elementIdError){  
-    if(document.getElementById(elementId).value===''){
-            showRequired(elementIdError,elementIdInput);
-    }else{
-        validate();
-        hideRequired(elementIdError,elementIdInput);
-    }
+var inputs;
+
+var checkBoxes;
+
+var isValid=false;
+
+const setCheckboxesFields=(checkBoxesForm)=>checkBoxes=checkBoxesForm
+
+const setInputsFields=(inputsForm)=>inputs=inputsForm
+
+const getIsValid=()=>isValid
+
+const setIsValid=(isValidForm)=>isValid=isValidForm
+
+const validateInput=(input)=>{ 
+
+    if(!isValidInputField(input)) showRequired(elementIdError,elementIdInput);
+
+    else hideRequired(elementIdError,elementIdInput);
 }
 
-function showRequired(elementIdError,elementIdInput){
-    document.getElementById(elementIdError).innerText='Required';
-    document.getElementById(elementIdInput).style.border='#9A0033 solid 2px';
+const validateCheckbox=()=> validate()
+
+const showRequired=(elementIdError,elementIdInput)=>{
+    setElementByIdInnerText(elementIdError,'Required')
+
+    setElementByIdBorder(elementIdInput,`${errorColor} 2px solid`);
 }
-function hideRequired(elementIdError,elementIdInput){
-    document.getElementById(elementIdError).innerText='';
-    document.getElementById(elementIdInput).style.border='none';
+const hideRequired=(elementIdError,elementIdInput)=>{
+    setElementByIdInnerText(elementIdError,'')
+
+    setElementByIdBorder(elementIdInput,'none');
 }
-function validateCheckBoxRadio(){
-    validate();
-}
-function validate(){
-//Check if within the form there is an element that is not completed
-      
-      if (radioButtons.some(radioButton=>radioButton.checked===true) && inputs.some(input=>input.value!=="") && textAreas.some(textArea=>textArea.value!=="") && checkBoxes.some(checkBox=>checkBox.checked===true) ) {  
-          document.getElementsByTagName("button")
-      }
-}
-function onSubmit(){
-    console.log('success');
+
+const isValidCheckboxesField=(checkBoxes)=>_.some(checkBoxes,{checked:true})
+
+const isValidInputField=(input)=>input.value!==''
+
+const validate=()=>{
+   if(_.all(inputs,isValidInputField) && _.all(checkBoxes,isValidCheckboxesField)) setIsValid(true)
+   else isValid(false)
 }

@@ -1,0 +1,14 @@
+@import url('../general/colors.css');
+.formContainer{
+    margin: 1rem 1rem 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1vh;
+}
+.sectionContainer{
+    background: var(--contrastColor);
+    margin-top: 7rem;
+    width: 50vw;
+    height: 60vh;
+    border-radius: 5%;
+}
