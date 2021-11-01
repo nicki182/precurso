@@ -8,7 +8,7 @@
     box-shadow: var(--boxShadowCard);
     border: none;
 }
-    .submitButton {
+.submitButton {
         height: 2rem;
         width: 15rem;
         background-color: var(--white);
@@ -16,4 +16,4 @@
         border-radius: 3%;
         box-shadow: var(--boxShadowCard);
         border: none;
-    }
+}
