@@ -1,12 +1,10 @@
 /*
 Validation for each field:
-    validation:{
         required:isFieldRequired
         min:minimumLegth | minimimumValue
         max:maximumLegth | maximumValue
         regex:regexForString
         boolean:booleanFieldValue
-    } 
 */
 var fieldsValidations;
 
@@ -19,6 +17,11 @@ const getRequiredValidationByType=(fieldType)=>{
         case "array":
             return requiredArrayValidation      
     }
+}
+
+const executeValidation=(elements,field,validation)=>{
+    if(field.type === 'string' || field.type === 'string' ) return validation(elements[0])
+    else return validation(elements) 
 }
 
 const getMaxinumValidationByType=(fieldType)=>{
@@ -92,4 +95,4 @@ const maximumArrayValidation=(inputs,max)=>_.size(_.filter(inputs,input=>(input.
 const regexValidation=(input,regex)=>regex.test(input.value)
 
 /*boolean*/
-const booleanValidation=(inputs)=>_.some(input,{checked:true})
+const booleanValidation=(inputs)=>_.some(inputs,{checked:true})

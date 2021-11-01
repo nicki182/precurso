@@ -3,24 +3,37 @@ asked I already did it in a much simpler code (before receiving the assigment in
 and I wanted to take the chance to make something that I would be able to use it in any form. 
 Maybe it's too much for what is asked but I wanted to take the challange and see if I can do it 
 and if it didn't work, which if you are reading this I manage to do it, 
-then no harm done because I would reuse the other code I made and make some twaeks. 
+then no harm done because I would reuse the other code I made and make some tweaks. 
 */
 /*Fields is an arrray of fields for more information read fields file*/
-var isValid=false;
+/*onChange in every field validation receives if form is validated */
+/*TODO:For improvement reasons not for neccesisity right not, should send fields values */
+
 var fields;
+var onChange;
+
 const fieldsContructor=(fieldsC)=>_.map(fieldsC,fieldContructor)
 
 const setFields=(fieldsS)=>fields=fieldsContructor(fieldsS)
 
-const validateField=()=>{
-    
+const setOnChange=(onChangeV)=>onChange=onChangeV
+
+const setFieldValidation=(field,valid)=>field=setIsValidField(field,valid)
+
+const validateForm=()=>onChange && onChange(_.every(fields,{isValid:true}))
+
+const validateField=(field)=>{
+    const elementsField=getElementsByName(field.name)
+    if(executeValidation(elementsField)) setFieldValidation(field,true)
+    else setFieldValidation(field,false)  
+    validateForm()
 }
 
 const createFields=(fieldsToValidate)=>{
     setFields(fieldsToValidate)
     _.forEach(fields,field=>{
     const elementsField=getElementsByName(field.name)
-    _.forEach(elementsField,element=>setElementEventListener(element,"change",validateField))
+    _.forEach(elementsField,element=>setElementEventListener(element,"change",()=>validateField(field)))
     })
 }
 
