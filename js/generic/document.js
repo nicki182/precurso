@@ -28,3 +28,5 @@ const setElementDisabled=(element,disabled)=>element.disabled=disabled
 const getElementsByName=(elementName)=>document.getElementsByName(elementName)
 
 const getElementById=(elementId)=>document.getElementById(elementId)
+
+const setElementEventListener=(element,type,event)=>element.addEventiListener(type,event)

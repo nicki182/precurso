@@ -29,3 +29,10 @@
     outline: none;
     
 }
+.required{
+    border:var(--borderColorError);
+}
+.required::after{
+    content: 'Required';
+    color:var(--textColor)
+}
