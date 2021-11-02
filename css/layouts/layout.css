@@ -15,8 +15,7 @@
 .navigation{
     width: 100vw;
     display: flex;
-    justify-content: space-around;
-    background-color: var(--contrastColor);
+    justify-content: flex-start;
     position: fixed;
     z-index: 1;
   }
@@ -25,12 +24,8 @@
     padding: 1rem;
     align-self: center;
     text-decoration: none;
-    width: 100%;
     height: 100%;
     justify-content: center;
     display: flex;
     color:var(--textColor);
-}
-.nav-item:hover{
-  background-color: #bb0b46b4;
 }

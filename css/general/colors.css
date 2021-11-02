@@ -1,11 +1,12 @@
 :root{
 --darkModeBackgroud:linear-gradient(0deg, rgba(10,54,103,1) 0%, rgba(116,66,121,1) 57%);
 --lightModeBackground:linear-gradient(0deg, rgba(255,252,71,1) 0%, rgba(237,122,29,1) 57%);  
---contrastColor:#7A0029;
+--contrastColor:#d90858;
+--onHoverContrastColor:#f9a8a8;
 --contrastColorLight:#f6cb3c;
 --contrastColorDark:#bb0b46b4;
---white:white;
---black:#000;
+--white:rgb(235, 235, 235);
+--black:rgba(21, 11, 32, 0.973);
 --borderColorError:white;
 --boxShadowCard: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

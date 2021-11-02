@@ -1,9 +1,17 @@
-const lightModeColor='linear-gradient(0deg, rgba(255,252,71,${opacity}) 0%, rgba(237,122,29,${opacity}) 57%)'
+/*Contasts for colors within the page that depending the mode*/
+const lightModeColor='linear-gradient(60deg, rgba(235,235,235,${opacity}) 0%, rgba(222,209,18,${opacity}) 35%, rgba(245,132,52,${opacity}) 78%)'
+const darkModeColor='linear-gradient(60deg, rgba(17,0,36,${opacity}) 0%, rgba(9,9,121,${opacity}) 35%, rgba(91,24,199,${opacity}) 78%)'
 
-const darkModeColor='linear-gradient(0deg, rgba(10,54,103,${opacity}) 0%, rgba(116,66,121,${opacity}) 57%)'
+const blackTextColor="rgba(21, 11, 32,${opacity})"
+const whiteTextColor="rgba(235, 235, 235,${opacity})"
 
-const errorColor='#ffff'
+const contrastColorDarkMode="rgba(21, 11, 32,${opacity})"
+const contrastColorLightMode="rgba(235, 235, 235,${opacity})"
 
+const errorColorLightMode='#ffff'
+const errorColorDarkMode='#ffff'
+
+/*Footer constast*/
 const lenguages=['HTML','JAVASCRIPT','CSS']
 
 const labelLeguages={
@@ -12,6 +20,7 @@ const labelLeguages={
     CSS:'CSS'
 }
 
+/*Maps constast*/
 const cities=['BUENOS_AIRES','AVENTURA','PARIS','PINSK']
 
 const cityURL={

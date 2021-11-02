@@ -44,13 +44,14 @@
     <script src="./js/generic/compiler.js"></script>
     <script src="./js/generic/constanst.js"></script>
     <script src="./js/generic/footer.js"></script>
+    <script src="./js/generic/mode.js"></script>
     <script>
     let initialMode=getMode()
     if(!initialMode){
       setMode('dark')
       initialMode='dark'
     }
-    setBackgroundByMode(initialMode)
+    setChangesByMode(initialMode)
    </script>
   </body>
 </html>

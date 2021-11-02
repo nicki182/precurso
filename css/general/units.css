@@ -1,0 +1,11 @@
+:root{
+    --largeInput:20rem;
+    --smallInput:10rem;
+    --mediumInput:15rem;
+    --largeButton:20rem;
+    --smallButton:10rem;
+    --mediumButton:15rem;
+    --largeText:2rem;
+    --smallText:1rem;
+    --mediumText:1.5rem;
+}

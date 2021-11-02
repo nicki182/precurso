@@ -30,3 +30,13 @@ const getElementsByName=(elementName)=>document.querySelectorAll(`[name="${eleme
 const getElementById=(elementId)=>document.getElementById(elementId)
 
 const setElementEventListener=(element,type,event)=>element.addEventListener(type,event)
+
+const setColorByMode=(mode)=>{
+    if(mode === 'light') setPropetyValue('--textColor',compile(blackTextColor))
+    else setPropetyValue('--textColor',compile(whiteTextColor,1))
+}
+
+const setContrastColorByMode=(mode)=>{
+    if(mode === 'light') setPropetyValue('--contrastColor',compile(contrastColorLightMode))
+    else setPropetyValue('--contrastColor',compile(contrastColorDarkMode,1))
+}

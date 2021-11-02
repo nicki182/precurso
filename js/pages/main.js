@@ -6,7 +6,7 @@ fetch(GITHUB_URL)
   })
   .then((data)=> {
     const profileImage=getElementById('profile-image')
-    setElementByIdSrc(data.avatar_url,profileImage);
+    setElementSrc(data.avatar_url,profileImage);
   });
   /*Initial variables*/
   let mode;
@@ -60,7 +60,7 @@ fetch(GITHUB_URL)
   
       const elapsed = timestamp - start;
   
-      if (isFadingInMore(timestamp)) setBackgroundToFadeInMore();
+      if (isFadingInMore(timestamp)) setPageToFadeInMore();
   
       if (elapsed < animationTime) getMoreFramesFadeIn(timestamp);
   
@@ -82,7 +82,7 @@ fetch(GITHUB_URL)
   
     const elapsed = timestamp - start;
   
-    if (isFadingOutMore(timestamp)) setBackgroundToFadeOutMore();
+    if (isFadingOutMore(timestamp)) setPageToFadeOutMore();
   
     if (elapsed < animationTime) getMoreFramesFadeOut(timestamp);
   
@@ -102,7 +102,7 @@ fetch(GITHUB_URL)
 
   const setProfileImageCursor=(cursor)=>{
     const profileImage=getElementById('profile-image')
-    setElementByIdCursor(cursor,profileImage);
+    setElementCursor(cursor,profileImage);
   }
 
   const setRunningAnimation=(run)=>{
@@ -155,16 +155,23 @@ fetch(GITHUB_URL)
     setOpacity(newOpacity)
   }
 
-  const setBackgroundToFadeInMore=()=>{
+  const setPageToFadeInMore=()=>{
     /*Set background color with diferent opacity*/
     const opacity=getOpacity();
-    setBackground(getBackgroudOpacity(mode==='dark'?'light':'dark',opacity))
+    const mode=getMode();
+    const modeToSet=mode==='light'?'dark':'light';
+    setBackground(getBackgroudOpacity(modeToSet,opacity))
+    setPropetyValue('--textColor',getColorOpacity(modeToSet,opacity))
+    setPropetyValue('--contrastColor',getColorOpacity(modeToSet,opacity))
   }
 
-  const setBackgroundToFadeOutMore=()=>{
+  const setPageToFadeOutMore=()=>{
     /*Set background color with diferent opacity*/
     const opacity=getOpacity();
+    const mode=getMode();
     setBackground(getBackgroudOpacity(mode,opacity))
+    setPropetyValue('--textColor',getColorOpacity(mode,opacity))
+    setPropetyValue('--contrastColor',getColorOpacity(mode,opacity))
   }
 
   const setOriginalStateFadeIn=()=>{
@@ -204,16 +211,26 @@ fetch(GITHUB_URL)
     return animationTime
   }
 
-  function getPreviousTimeStamp(){
+  const getPreviousTimeStamp=()=>{
     return previousTimeStamp
   }
 
- function getBackgroudOpacity(mode,opacity){
+ const getBackgroudOpacity=(mode,opacity)=>{
    if(mode === 'light') return  compile(lightModeColor,{opacity})
    return compile(darkModeColor,{opacity})
  }
 
- function isFadingInMore(timestamp){
+ const getColorOpacity=(mode,opacity)=>{
+  if(mode === 'light') return  compile(blackTextColor,{opacity})
+  return compile(whiteTextColor,{opacity})
+}
+
+const getContrastColor=(mode,opacity)=>{
+  if(mode === 'light') return  compile(contrastColorLightMode,{opacity})
+  return compile(contrastColorDarkMode,{opacity})
+}
+
+ const isFadingInMore=(timestamp)=>{
 
    const previousTimeStamp=getPreviousTimeStamp();
 
@@ -222,7 +239,7 @@ fetch(GITHUB_URL)
    return previousTimeStamp !== timestamp && opacity<1
  }
 
- function isFadingOutMore(timestamp){
+ const isFadingOutMore=(timestamp)=>{
 
   const previousTimeStamp=getPreviousTimeStamp();
 
