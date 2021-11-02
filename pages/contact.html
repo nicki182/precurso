@@ -30,20 +30,20 @@
       method="POST">
       <div class="formContainer">
             <label class="labelForm">First Name:</label>
-            <input name="inputName" class="inputForm" onchange="return validateInput()" id="nameExample" placeholder="Name..." ></input>
+            <input name="inputName" class="inputForm" id="nameExample" placeholder="Name..." ></input>
             <label class="labelForm">Last Name:</label>
-            <input name="exampleInput" class="inputForm" onchange="return validateInput()" id="nameExample" placeholder="Last Name..." ></input>
-            <label>Add a coment</label><textarea class="textAreaForm" placeholder="Type Here..."></textarea>
+            <input name="inputLastName" class="inputForm" id="nameExample" placeholder="Last Name..." ></input>
+            <label>Add a coment</label><textarea name="comment" class="textAreaForm" placeholder="Type Here..."></textarea>
             
         <label class="labelForm">Lenguajes:</label><div class="checkBoxForm">
-      <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" type="checkbox" id="exampleCheckbox1" value="1"></input>
+      <input name="checkbox"  class="inputCheckbox" type="checkbox" id="exampleCheckbox1" value="1"></input>
       <label for="exampleCheckbox1" >Checkbox 1</label>
-      <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" id="exampleCheckbox2" type="checkbox" value="2"></input>
+      <input name="checkbox"  class="inputCheckbox" id="exampleCheckbox2" type="checkbox" value="2"></input>
       <label for="exampleCheckbox3" >Checkbox 2</label>
-      <input name="checkboxExample" onchange="return validateCheckBoxRadio()"  class="inputCheckbox" id="exampleCheckbox3" type="checkbox" value="3"></input>
+      <input name="checkbox"  class="inputCheckbox" id="exampleCheckbox3" type="checkbox" value="3"></input>
       <label for="exampleCheckbox3" >Checkbox 3</label></div>
       <div style="display: flex; justify-content: center;margin-top: 1rem;">
-      <button disabled="true" class="submitButton" type="submit">Submit</button></div>
+      <button disabled="true" id="submitContact" class="submitButton" type="submit">Submit</button></div>
      </div> </form>
     </div></div>
     <footer>
@@ -51,10 +51,14 @@
     </footer>
     <script src="../js/generic/storage.js"></script>
         <script src="../js/generic/document.js"></script>
-        <script src="../js/pages/about.js"></script>
-        <script src="../js/generic/compiler.js"></script>
+        <script src="../js/generic/form/fields.js"></script>
+        <script src="../js/generic/form/index.js"></script>
+        <script src="../js/generic/form/validations.js"></script>
+        <script src="../js/pages/contact.js"></script>
         <script src="../js/generic/constanst.js"></script>
         <script src="../js/generic/footer.js"></script>
+        <script src="../js/generic/compiler.js"></script>
+
     <script>
         let initialMode=getMode()
         if(!initialMode){

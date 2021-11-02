@@ -7,7 +7,7 @@ then no harm done because I would reuse the other code I made and make some twea
 */
 /*Fields is an arrray of fields for more information read fields file*/
 /*onChange in every field validation receives if form is validated */
-/*TODO:For improvement reasons not for neccesisity right not, should send fields values */
+/*TODO:For improvement reasons not for neccesisity right not, should send fields values of form */
 
 var fields;
 var onChange;
@@ -18,22 +18,23 @@ const setFields=(fieldsS)=>fields=fieldsContructor(fieldsS)
 
 const setOnChange=(onChangeV)=>onChange=onChangeV
 
-const setFieldValidation=(field,valid)=>field=setIsValidField(field,valid)
-
-const validateForm=()=>onChange && onChange(_.every(fields,{isValid:true}))
+const validateForm=(field)=>onChange && onChange(_.every(fields,{isValid:true}),field)
 
 const validateField=(field)=>{
     const elementsField=getElementsByName(field.name)
-    if(executeValidation(elementsField)) setFieldValidation(field,true)
-    else setFieldValidation(field,false)  
-    validateForm()
+    if(isEveryFieldValidated(elementsField,field)) _.set(field,"isValid",true)
+    else _.set(field,"isValid",false)
+    console.log(fields,_.every(fields,{isValid:true}),_.every(fields,field=>field.isValid))
+    validateForm(field)
 }
 
 const createFields=(fieldsToValidate)=>{
     setFields(fieldsToValidate)
     _.forEach(fields,field=>{
-    const elementsField=getElementsByName(field.name)
-    _.forEach(elementsField,element=>setElementEventListener(element,"change",()=>validateField(field)))
+    const elementsField=document.querySelectorAll(`[name="${field.name}"]`)
+    elementsField.forEach(element=>{
+        setElementEventListener(element,"change",()=>validateField(field))
+    })
     })
 }
 

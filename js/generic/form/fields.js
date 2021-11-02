@@ -13,8 +13,6 @@ Field:
 }
 */
 
-const setIsValidField=(field,valid)=>({...field,isValid:valid})
-
 const fieldContructor=(field)=>{
     /*{
     name:nameOfField
@@ -28,7 +26,12 @@ const fieldContructor=(field)=>{
     } 
 } */
     const validations = Object.fromEntries(
-        Object.entries(field).map(entry => [entry[0], {value:entry[1],validator:getValidation(entry[0],entry[1],field.type)}])
+        Object.entries(field.validations).map(entry => [entry[0], {value:entry[1],validator:getValidation(entry[0],entry[1],field.type)}])
     );
     return {...field,isValid:false,validations}
+}
+
+const isEveryFieldValidated=(elements,field)=>{
+    if(field.type === 'string' || field.type === 'number' ) return _.every(Object.values(field.validations),validation=>validation.validator(elements[0],validation.value))
+    else return _.every(Object.values(field.validations),validation=>validation.validator(elements))
 }

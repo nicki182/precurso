@@ -19,11 +19,6 @@ const getRequiredValidationByType=(fieldType)=>{
     }
 }
 
-const executeValidation=(elements,field,validation)=>{
-    if(field.type === 'string' || field.type === 'string' ) return validation(elements[0])
-    else return validation(elements) 
-}
-
 const getMaxinumValidationByType=(fieldType)=>{
     switch(fieldType){
         case "string":
@@ -63,6 +58,8 @@ const getValidation=(validation,value,fieldType)=>{
                 if(value) return getRequiredValidationByType(fieldType)
             case "min":
                 return getMinimumValidationByType(fieldType)
+            case "max":
+                return getMaximumValidationByType(fieldType)    
             case "regex":
                 return regexValidation
             case "boolean":
@@ -85,7 +82,10 @@ const minimumNumberValidation=(input,min)=>input.value!=='' && _.toInteger(input
 
 const minimumArrayValidation=(inputs,min)=>_.size(_.filter(inputs,input=>(input.value && input.value!=='') || input.checked))>min
 
-const maximumStringValidation=(input,max)=>_.size(input.value) < max 
+const maximumStringValidation=(input,max)=>{
+    console.log(input.value,max)
+   return _.size(input.value) < max
+} 
 
 const maximumNumberValidation=(input,max)=>input.value!=='' && _.toInteger(input.value)<max
 
