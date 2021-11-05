@@ -7,14 +7,15 @@
 }
 .mapouter{
     height: 40rem;
-    width: 40rem;
+    width: 100%;
     background-color: var(--contrastColor);
-    border-radius: 10%;
+    border-radius: 5%;
     margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0.9;
 }
 .containerAbout {
     display: grid;

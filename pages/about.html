@@ -46,8 +46,8 @@
         </iframe>
     </div>
     <div class="buttons">
-        <button type="button" style="margin-left: 4.2rem;" class="citiesButton" id="previous_button" onclick="return previousCity()" >prev</button>
-        <button type="button" class="citiesButton" style="margin-right:4.2rem;margin-left: auto;" id="next_button" onclick="return nextCity()">next</button>    
+        <button type="button" onmouseover="return buttonPreviousDegreeChanges()" style="margin-left: 4.2rem;" class="citiesButton" id="previous_button" onclick="return previousCity()" ><span class="buttonText">Previous</span></button>
+        <button type="button" onmouseover="return buttonNextDegreeChanges()" class="citiesButton" style="margin-right:4.2rem;margin-left: auto;" id="next_button" onclick="return nextCity()"><span class="buttonText">Next</span></button>    
 </div>
     </div>
 </div>
@@ -55,6 +55,7 @@
     <footer>
         <div id='footerText'></div>
       </footer>
+      <script src="../js/generic/animation/degreChanges.js"></script>
       <script src="../js/generic/window.js"></script>
         <script src="../js/generic/storage.js"></script>
         <script src="../js/generic/document.js"></script>
@@ -63,6 +64,7 @@
         <script src="../js/generic/constanst.js"></script>
         <script src="../js/generic/footer.js"></script>
         <script src="../js/generic/mode.js"></script>
+        
         <script>
             let initialMode=getMode()
             if(!initialMode){

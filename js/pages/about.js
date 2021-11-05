@@ -52,3 +52,7 @@ const previousCity=()=>{
     if(i===0) takeOutPreviousButton()
     else if(i===cities.length-2) bringBackNextButton()
 }
+
+const buttonNextDegreeChanges=()=> degreChanges('next_button')
+
+const buttonPreviousDegreeChanges=()=> degreChanges('previous_button')
