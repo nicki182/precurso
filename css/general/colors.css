@@ -1,6 +1,6 @@
 :root{
---darkModeBackgroud:linear-gradient(0deg, rgba(10,54,103,1) 0%, rgba(116,66,121,1) 57%);
---lightModeBackground:linear-gradient(0deg, rgba(255,252,71,1) 0%, rgba(237,122,29,1) 57%);  
+--lightMode:linear-gradient(60deg, rgba(235,235,235,1) 0%, rgba(222,209,18,1) 35%, rgba(245,132,52,) 78%);
+--darkMode:linear-gradient(60deg, rgba(17,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(91,24,199,1) 78%);  
 --contrastColor:#d90858;
 --onHoverContrastColor:#f9a8a8;
 --contrastColorLight:#f6cb3c;

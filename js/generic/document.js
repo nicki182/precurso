@@ -31,12 +31,18 @@ const getElementById=(elementId)=>document.getElementById(elementId)
 
 const setElementEventListener=(element,type,event)=>element.addEventListener(type,event)
 
+const setElementTop=(element,top)=>element.style.top=top
+
+const setElementRight=(element,right)=>element.style.right=right
+
+const setElementTransform=(element,transform)=>element.style.transform=transform
+
 const setColorByMode=(mode)=>{
-    if(mode === 'light') setPropetyValue('--textColor',compile(blackTextColor))
-    else setPropetyValue('--textColor',compile(whiteTextColor,1))
+    if(mode === 'light') setPropetyValue('--textColor',compile(blackTextColor,{opacity:1}))
+    else setPropetyValue('--textColor',compile(whiteTextColor,{opacity:1}))
 }
 
 const setContrastColorByMode=(mode)=>{
-    if(mode === 'light') setPropetyValue('--contrastColor',compile(contrastColorLightMode))
-    else setPropetyValue('--contrastColor',compile(contrastColorDarkMode,1))
+    if(mode === 'light') setPropetyValue('--contrastColor',compile(contrastColorLightMode,{opacity:1}))
+    else setPropetyValue('--contrastColor',compile(contrastColorDarkMode,{opacity:1}))
 }

@@ -17,18 +17,19 @@
         <a style="cursor: pointer;" class="nav-item">About</a>
         <a href="./contact.html" class="nav-item">Contact</a>
         </nav>
+        <div class="containerAbout">
         <div style="display: flex;justify-content: center;">
         <div class="title">
         <h1>My name is Nicole Stulavits and...</h1>
     </div>
     </div>
-        <div style="display: flex; flex-direction: row; margin-top: 4rem;">
+        <div style="display: flex; flex-direction: row;">
             <div id='next_1' class="next1 cardNext"><p style="margin: 1rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ut asperiores reiciendis dolorum, fuga placeat? Laborum rerum, quis harum tempora nemo inventore quibusdam dolores itaque voluptatem atque doloremque. Dolorum, doloremque?...<a style="cursor:pointer;" onclick='return moveNext2()'>Next</a></p></div>
             <div id="next_2" class="next2Intial cardNext"><p style="margin: 1rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum inventore, sit tempore doloremque eaque vero earum, id dolore sapiente exercitationem voluptate consequatur voluptas, optio ad minus beatae cupiditate eius consectetur...<a style="cursor:pointer;" onclick='return moveNext3()'>Next</a></p></div>
             <div id="next_3" class="next3Intial cardNext"><p style="margin: 1rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, nihil, voluptates natus ut labore quasi facere dignissimos deserunt dolores, neque ducimus fugit qui minus eius. Dolore perspiciatis exercitationem dignissimos blanditiis!...</p></div>
         </div>
         <div class="citySection">
-            <div class="title">
+            <div class="title" style="font-size: 3rem;">
             <h1>The cities I have visited...</h1>
         </div>
     <div class="mapouter">
@@ -49,22 +50,26 @@
         <button type="button" class="citiesButton" style="margin-right:4.2rem;margin-left: auto;" id="next_button" onclick="return nextCity()">next</button>    
 </div>
     </div>
+</div>
+</div>
     <footer>
         <div id='footerText'></div>
       </footer>
+      <script src="../js/generic/window.js"></script>
         <script src="../js/generic/storage.js"></script>
         <script src="../js/generic/document.js"></script>
         <script src="../js/pages/about.js"></script>
         <script src="../js/generic/compiler.js"></script>
         <script src="../js/generic/constanst.js"></script>
         <script src="../js/generic/footer.js"></script>
+        <script src="../js/generic/mode.js"></script>
         <script>
             let initialMode=getMode()
             if(!initialMode){
               setMode('dark')
               initialMode='dark'
             }
-            setBackgroundByMode(initialMode)
+            setChangesByMode(initialMode)
            </script>
 </body>
 </html>

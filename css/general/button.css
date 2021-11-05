@@ -2,7 +2,7 @@
 .citiesButton{
     height: 2rem;
     width: 5rem;
-    background-color:var(--white) ;
+    background:var(--white) ;
     color:var(--black) ;
     border-radius: 10%;
     box-shadow: var(--boxShadowCard);
@@ -11,9 +11,35 @@
 .submitButton {
         height: 2rem;
         width: 15rem;
-        background-color: var(--white);
+        background: var(--white);
         color: var(--black);
         border-radius: 3%;
         box-shadow: var(--boxShadowCard);
         border: none;
+}
+.buttonTest{
+    width: 550px;
+        height: 50px;
+        border-radius: 20px;
+        outline: none;
+        border: 8px solid transparent;
+        background: linear-gradient(#fff,#fff) content-box, var(--darkMode) border-box;
+        font-size: 20px;
+        text-align: center;
+}
+.textTest{
+    background: var(--darkMode);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.testClass{
+height: 20rem;
+width: 20rem;
+background:purple;
+position: relative;
+}
+.buttonTest:hover{
+    animation: testAnimation 10s;
 }

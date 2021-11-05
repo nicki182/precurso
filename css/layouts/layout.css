@@ -8,7 +8,7 @@
   
   body {
     font-family: sans-serif;
-    height: 100vh;
+    height: 100%;
     color:var(--textColor);
     font-family: var(--default-font-family);
   }

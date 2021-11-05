@@ -16,13 +16,22 @@
     align-items: center;
     flex-direction: column;
 }
+.containerAbout {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    /* border-radius: 5%; */
+    grid-template-rows: 50vh 30rem 1fr;
+}
 .cardNext{
         height: 15rem;
         width: 15rem;
         border-radius: 10%;
-        box-shadow: var(--boxShadoxCard);
-        background-color: var(--contrastColor);
-        margin-top: 3rem;
+        /* box-shadow: var(--boxShadowCard); */
+        background: var(--contrastColor);
+        opacity: 0.9;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,8 +43,9 @@
         flex-direction: column;
         align-items: center;
 }
+
 .next1{
-        transform: translate(10vw,0px);
+        transform: translate(5vw,0px);
         animation: next1 2s ease;
 }
 .next2Intial{
@@ -45,11 +55,11 @@
     transform: translate(-54vw, 0px);
 }
 .next2Final{
-    transform: translate(20vw, 0px);
+    transform: translate(20.5vw, 0px);
     animation: next2 4s ease;
 }
 .next3Final{
-    transform: translate(30vw, 0px);
+    transform: translate(35vw, 0px);
     animation: next3 6s ease;
 }
 .buttons{
@@ -64,7 +74,7 @@
         transform: translate(-36vw, 0px); 
     }
     to{
-        transform: translate(10vw,0px); 
+        transform: translate(5vw,0px); 
     }
 }
 @keyframes next2 {
@@ -80,6 +90,6 @@
         transform: translate(-54vw, 0px); 
     }
     to{
-        transform: translate(30vw,0px); 
+        transform: translate(35vw,0px); 
     }
 }

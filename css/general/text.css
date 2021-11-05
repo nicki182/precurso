@@ -1,22 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300&family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&family=Roboto:wght@300&family=Zen+Kurenaido&display=swap');
 @import url('./colors.css');
+@import url('./inputs.css');
 :root{
     --default-font-family:'Roboto', sans-serif;
-    --title-font-family:'Bebas Neue', cursive;
+    --header-font-family:'Bebas Neue', cursive;
+    --title-font-family:'Oswald', sans-serif;
     --change-font-family:'Zen Kurenaido', sans-serif;
     --textColor:var(--white);
 }
 .title{
     display: flex;
     flex-direction: column;
-    font-family: var(--change-font-family);
+    font-family: var(--title-font-family);
     justify-content: center;
     align-items: center;
-    background-color: var(--contrastColor);
-    width: 50vmax;
-    height: 10vmax;
-    box-shadow: var(--boxShadowCard);
-    border-radius: 50%;
+    font-size:6rem;
 }
 .titleCard{
     display: flex;

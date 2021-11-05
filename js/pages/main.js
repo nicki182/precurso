@@ -60,7 +60,7 @@ fetch(GITHUB_URL)
   
       const elapsed = timestamp - start;
   
-      if (isFadingInMore(timestamp)) setPageToFadeInMore();
+      if (isFadingInMore(timestamp)) setPageToFadeOutMore();
   
       if (elapsed < animationTime) getMoreFramesFadeIn(timestamp);
   
@@ -82,7 +82,7 @@ fetch(GITHUB_URL)
   
     const elapsed = timestamp - start;
   
-    if (isFadingOutMore(timestamp)) setPageToFadeOutMore();
+    if (isFadingOutMore(timestamp)) setPageToFadeInMore();
   
     if (elapsed < animationTime) getMoreFramesFadeOut(timestamp);
   
