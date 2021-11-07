@@ -1,251 +1,52 @@
 //replace with your user:
 const GITHUB_URL = "https://api.github.com/users/nicki182";
 fetch(GITHUB_URL)
-  .then((response)=> {
+  .then((response) => {
     return response.json();
   })
-  .then((data)=> {
-    const profileImage=getElementById('profile-image')
-    setElementSrc(data.avatar_url,profileImage);
+  .then((data) => {
+    const profileImage = getElementById("profile-image");
+    setElementSrc(data.avatar_url, profileImage);
   });
-  /*Initial variables*/
-  let mode;
-  let runningAnimation=false;
-  const animationBackgroundChange=()=>{
-        
-    let mode=getMode();
+/*Initial variables*/
+let mode;
+let runningAnimation = false;
+const animationBackgroundChange = () => {
+  const mode = getMode();
 
-    if(!runningAnimation){
+  const isAnimationRunning = getRunningAnimation();
 
-      if(mode ==='light') setMode('dark');
-  
-      else setMode('light');
+  if (!isAnimationRunning) {
+    runAnimation();
   }
+};
 
-    changeBackgroud(mode);
+const runAnimation = () => {
+  setRunningAnimation(true);
+  setProfileImageCursor("auto");
+  startAnimation(onFinish, "fadeOutIn");
+};
 
-  }
-  const changeBackgroud=(mode)=>{
-    if(!runningAnimation) runAnimation(mode)
-  }
+const onFinish = () => {
+  setRunningAnimation(false);
 
-  const runAnimation=(mode)=>{
-    setRunningAnimation(true)
-    setProfileImageCursor('auto');
-    setModeFade(mode)
-    window.requestAnimationFrame(fadeOut)
-  }
+  setProfileImageCursor("pointer");
 
-  const finishAnimationFadeIn=()=>{
-    setOriginalStateFadeIn()
-    setRunningAnimation(false);
-    setProfileImageCursor('pointer')
-   }
-  
-   const finishAnimationFadeOut=()=>{
-    setOriginalStateFadeOut(); 
-    getMoreFramesFadeIn(0);
-   }
-  
-    const fadeIn=(timestamp)=> {
-  
-      let start=getStart();
-  
-      const animationTime=getAnimationTime();
-  
-      if (!start){ 
-        setStart(timestamp)
-        start=getStart()
-      }
-  
-      const elapsed = timestamp - start;
-  
-      if (isFadingInMore(timestamp)) setPageToFadeOutMore();
-  
-      if (elapsed < animationTime) getMoreFramesFadeIn(timestamp);
-  
-      else finishAnimationFadeIn();
-      
-      setNewOpacityIn();
-  }
-  
-  const fadeOut=(timestamp)=> {
+  const mode = getMode();
 
-    let start=getStart();
-  
-    const animationTime=getAnimationTime();
-  
-    if (!start){ 
-      setStart(timestamp)
-      start=getStart()
-    }
-  
-    const elapsed = timestamp - start;
-  
-    if (isFadingOutMore(timestamp)) setPageToFadeInMore();
-  
-    if (elapsed < animationTime) getMoreFramesFadeOut(timestamp);
-  
-    else finishAnimationFadeOut();
-  
-    setNewOpacityOut()
-  }
+  if (mode === "light") setMode("dark");
+  else setMode("light");
+};
+const getRunningAnimation = () => {
+  return runningAnimation;
+};
+/*Seter functions*/
 
-  /*Animation initial values*/
-  let start=0, previousTimeStamp=0,opacity=1;
-  /*How much opacity is chaging by frame*/
-  let opacityChangeBy=0.0050;
-  /*Duration of animation*/
-  let animationTime=5000;
+const setProfileImageCursor = (cursor) => {
+  const profileImage = getElementById("profile-image");
+  setElementCursor(cursor, profileImage);
+};
 
-  /*Seter functions*/
-
-  const setProfileImageCursor=(cursor)=>{
-    const profileImage=getElementById('profile-image')
-    setElementCursor(cursor,profileImage);
-  }
-
-  const setRunningAnimation=(run)=>{
-    runningAnimation=run;
-  }
-
-  const setAnimationTime=(time)=>{
-    animationTime=time
-  }
-
-  const setModeFade=(m)=>{
-    mode=m
-  }
-
-  const setOpacityChangeBy=(opacity)=>{
-    opacityChangeBy=opacity
-  }
-
-  const setPreviousTimeStamp=(prev)=>{
-    previousTimeStamp=prev;
-  }
-
-  const setOpacity=(opa)=>{
-    opacity=opa
-  }
-
-  const setStart=(st)=>{
-    start=st
-  }
-
-  const setNewOpacityIn=()=>{
-
-    const opacity=getOpacity();
-
-    const opacityChangeBy=getOpacityChangeBy();
-
-    const newOpacity=opacity+opacityChangeBy
-  
-    setOpacity(newOpacity)
-  }
-
-  const setNewOpacityOut=()=>{
-
-    const opacity=getOpacity();
-
-    const opacityChangeBy=getOpacityChangeBy();
-
-    const newOpacity=opacity-opacityChangeBy
-  
-    setOpacity(newOpacity)
-  }
-
-  const setPageToFadeInMore=()=>{
-    /*Set background color with diferent opacity*/
-    const opacity=getOpacity();
-    const mode=getMode();
-    const modeToSet=mode==='light'?'dark':'light';
-    setBackground(getBackgroudOpacity(modeToSet,opacity))
-    setPropetyValue('--textColor',getColorOpacity(modeToSet,opacity))
-    setPropetyValue('--contrastColor',getColorOpacity(modeToSet,opacity))
-  }
-
-  const setPageToFadeOutMore=()=>{
-    /*Set background color with diferent opacity*/
-    const opacity=getOpacity();
-    const mode=getMode();
-    setBackground(getBackgroudOpacity(mode,opacity))
-    setPropetyValue('--textColor',getColorOpacity(mode,opacity))
-    setPropetyValue('--contrastColor',getColorOpacity(mode,opacity))
-  }
-
-  const setOriginalStateFadeIn=()=>{
-    setStart(0)
-    setPreviousTimeStamp(0)
-  }
-
-  const setOriginalStateFadeOut=()=>{
-    setStart(0)
-    setPreviousTimeStamp(0)
-  }
-
-  /*Geter functions*/
-  const getMoreFramesFadeOut=(timestamp)=>{
-    setPreviousTimeStamp(timestamp)
-    window.requestAnimationFrame(fadeOut);
-  }
-
-  const getMoreFramesFadeIn=(timestamp)=>{
-    setPreviousTimeStamp(timestamp)
-    window.requestAnimationFrame(fadeIn);
-  }
-
-  const getOpacity=()=>{
-    return opacity
-  }
-
-  const getOpacityChangeBy=()=>{
-    return opacityChangeBy
-  }
-
-  const getStart=()=>{
-    return start 
-  }
-
-  const getAnimationTime=()=>{
-    return animationTime
-  }
-
-  const getPreviousTimeStamp=()=>{
-    return previousTimeStamp
-  }
-
- const getBackgroudOpacity=(mode,opacity)=>{
-   if(mode === 'light') return  compile(lightModeColor,{opacity})
-   return compile(darkModeColor,{opacity})
- }
-
- const getColorOpacity=(mode,opacity)=>{
-  if(mode === 'light') return  compile(blackTextColor,{opacity})
-  return compile(whiteTextColor,{opacity})
-}
-
-const getContrastColor=(mode,opacity)=>{
-  if(mode === 'light') return  compile(contrastColorLightMode,{opacity})
-  return compile(contrastColorDarkMode,{opacity})
-}
-
- const isFadingInMore=(timestamp)=>{
-
-   const previousTimeStamp=getPreviousTimeStamp();
-
-   const opacity=getOpacity();
-
-   return previousTimeStamp !== timestamp && opacity<1
- }
-
- const isFadingOutMore=(timestamp)=>{
-
-  const previousTimeStamp=getPreviousTimeStamp();
-
-  const opacity=getOpacity();
-
-   return previousTimeStamp !== timestamp && opacity>0
- }
-
- 
+const setRunningAnimation = (run) => {
+  runningAnimation = run;
+};

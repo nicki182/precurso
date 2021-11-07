@@ -11,15 +11,14 @@
     <link href="../css/general/button.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://use.fontawesome.com/d4bc4843e4.js"></script>
-    <title>Document</title>
+    <title>Contact</title>
 </head>
 <body>
   <nav class="navigation">
     <a href="../index.html"  class="nav-item">Home</a>
     <a href="./about.html" class="nav-item">About</a>
     <a style="cursor: pointer;" class="nav-item">Contact</a>
-    </nav>
-    <div style="display:flex;justify-content:center">
+  </nav>
     <div class="sectionContainer">
       <div class="titleCard" style="margin-top: 1rem;">
       <h1>Contact form</h1>
@@ -29,23 +28,30 @@
       action="https://formspree.io/f/xbjqebaa"
       method="POST">
       <div class="formContainer">
-            <label class="labelForm">First Name:</label>
-            <input name="inputName" class="inputForm" id="nameExample" placeholder="Name..." ></input>
-            <label class="labelForm">Last Name:</label>
-            <input name="inputLastName" class="inputForm" id="nameExample" placeholder="Last Name..." ></input>
-            <label>Add a coment</label><textarea name="comment" class="textAreaForm" placeholder="Type Here..."></textarea>
+           <div class="fieldForm"> <label class="labelForm">First Name:</label>
+            <input name="inputName" class="inputForm" id="fistName" placeholder="Name..."/></div>
+            <div class="fieldForm"><label class="labelForm">Last Name:</label>
+            <input name="inputLastName" class="inputForm" id="lastName" placeholder="Last Name..." /></div>
+            <div class="fieldForm"><label class="labelForm">Add a coment</label><textarea name="comment" class="textAreaForm" placeholder="Type Here..."></textarea></div>
             
-        <label class="labelForm">Lenguajes:</label><div class="checkBoxForm">
-      <input name="checkbox"  class="inputCheckbox" type="checkbox" id="exampleCheckbox1" value="1"></input>
-      <label for="exampleCheckbox1" >Checkbox 1</label>
-      <input name="checkbox"  class="inputCheckbox" id="exampleCheckbox2" type="checkbox" value="2"></input>
-      <label for="exampleCheckbox3" >Checkbox 2</label>
-      <input name="checkbox"  class="inputCheckbox" id="exampleCheckbox3" type="checkbox" value="3"></input>
-      <label for="exampleCheckbox3" >Checkbox 3</label></div>
+       <div class="fieldForm"> <label class="labelForm">Coding lenguages that I know:</label><div class="checkBoxForm">
+      <input name="checkbox"  class="inputCheckbox" type="checkbox" id="checkboxField1" value="PYTHON"/>
+      <label for="checkboxField1" >Python</label>
+      <input name="checkbox"  class="inputCheckbox" id="checkboxField2" type="checkbox" value="JAVASCRIPT"/>
+      <label for="checkboxField2" >Javascript</label>
+      <input name="checkbox"  class="inputCheckbox" id="checkboxField3" type="checkbox" value="RUBY"/>
+      <label for="checkboxField3" >Ruby</label>
+      <input name="checkbox"  class="inputCheckbox" type="checkbox" id="checkboxField4" value="C"/>
+      <label for="checkboxField4" >C/C++/C#</label>
+      <input name="checkbox"  class="inputCheckbox" id="checkboxField5" type="checkbox" value="JAVA"/>
+      <label for="checkboxField5" >Java</label>
+      <input name="checkbox"  class="inputCheckbox" id="checkboxField6" type="checkbox" value="OTHER"/>
+      <label for="checkboxField6" >None/Other</label></div>
+    </div>
       <div style="display: flex; justify-content: center;margin-top: 1rem;">
-      <button disabled="true" id="submitContact" class="submitButton" type="submit">Submit</button></div>
-     </div> </form>
-    </div></div>
+      <button onmouseover="return buttonSubmitDegreeChanges()" id="submitContact" class="submitButton" type="submit">Submit</button></div>
+    </div> </form>
+    </div>
     <footer>
       <div id='footerText'></div>
     </footer>
@@ -59,13 +65,17 @@
         <script src="../js/generic/compiler.js"></script>
         <script src="../js/generic/mode.js"></script>
         <script src="../js/generic/window.js"></script>
+        <script src="../js/generic/animation/index.js"></script>
+        <script src="../js/generic/animation/degreeChanges/degreeChanges.js"></script>
     <script>
-        let initialMode=getMode()
-        if(!initialMode){
-          setMode('dark')
-          initialMode='dark'
-        }
-        setBackgroundByMode(initialMode)
+      const submitContact = getElementById('submitContact');
+      setElementDisabled(submitContact, true);
+         let initialMode=getMode()
+            if(!initialMode){
+              setMode('dark')
+              initialMode='dark'
+            }
+            setChangesByMode(initialMode)
        </script>
 </body>
 </html>

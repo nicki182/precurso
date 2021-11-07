@@ -8,91 +8,88 @@ Validation for each field:
 */
 var fieldsValidations;
 
-const getRequiredValidationByType=(fieldType)=>{
-    switch(fieldType){
-        case "string":
-            return requiredStringValidation
-        case "number":
-           return requiredNumberValidation 
-        case "array":
-            return requiredArrayValidation      
-    }
-}
+const getRequiredValidationByType = (fieldType) => {
+  switch (fieldType) {
+    case "string":
+      return requiredStringValidation;
+    case "number":
+      return requiredNumberValidation;
+    case "array":
+      return requiredArrayValidation;
+  }
+};
 
-const getMaxinumValidationByType=(fieldType)=>{
-    switch(fieldType){
-        case "string":
-            return requiredStringValidation
-        case "number":
-           return requiredNumberValidation 
-        case "array":
-            return requiredArrayValidation      
-    }
-}
+const getMaxinumValidationByType = (fieldType) => {
+  switch (fieldType) {
+    case "string":
+      return requiredStringValidation;
+    case "number":
+      return requiredNumberValidation;
+    case "array":
+      return requiredArrayValidation;
+  }
+};
 
-const getMinimumValidationByType=(fieldType)=>{
-    switch(fieldType){
-        case "string":
-            return minimumStringValidation
-        case "number":
-           return minimumNumberValidation 
-        case "array":
-            return minimumArrayValidation      
-    }
-}
+const getMinimumValidationByType = (fieldType) => {
+  switch (fieldType) {
+    case "string":
+      return minimumStringValidation;
+    case "number":
+      return minimumNumberValidation;
+    case "array":
+      return minimumArrayValidation;
+  }
+};
 
-const getMaximumValidationByType=(fieldType)=>{
-    switch(fieldType){
-        case "string":
-            return maximumStringValidation
-        case "number":
-           return maximumNumberValidation
-        case "array":
-            return maximumArrayValidation      
-    }
-}
+const getMaximumValidationByType = (fieldType) => {
+  switch (fieldType) {
+    case "string":
+      return maximumStringValidation;
+    case "number":
+      return maximumNumberValidation;
+    case "array":
+      return maximumArrayValidation;
+  }
+};
 
-const getValidation=(validation,value,fieldType)=>{
-        switch(validation){
-            case "required":
-                if(value) return getRequiredValidationByType(fieldType)
-            case "min":
-                return getMinimumValidationByType(fieldType)
-            case "max":
-                return getMaximumValidationByType(fieldType)    
-            case "regex":
-                return regexValidation
-            case "boolean":
-                 return booleanValidation
-            }    
-}
+const getValidation = (validation, value, fieldType) => {
+  switch (validation) {
+    case "required":
+      if (value) return getRequiredValidationByType(fieldType);
+    case "min":
+      return getMinimumValidationByType(fieldType);
+    case "max":
+      return getMaximumValidationByType(fieldType);
+    case "regex":
+      return regexValidation;
+    case "boolean":
+      return booleanValidation;
+  }
+};
 
 /*Required validations*/
-const requiredStringValidation=(input)=>input.value && input.value!==''
+const requiredStringValidation = (input) => input.value && input.value !== "";
 
-const requiredNumberValidation=(input)=>input.value && input.value!=='' && /^-?[0-9]*$/.test(input.value)
+const requiredNumberValidation = (input) => input.value && input.value !== "" && /^-?[0-9]*$/.test(input.value);
 
-const requiredArrayValidation=(inputs)=>_.some(inputs,input=>(input.value && input.value!=='') || input.checked )
+const requiredArrayValidation = (inputs) => _.some(inputs, (input) => input.value && input.value !== "");
 
 /*Min and Max validattions */
 
-const minimumStringValidation=(input,min)=>_.size(input.value) > min 
+const minimumStringValidation = (input, min) => _.size(input.value) > min;
 
-const minimumNumberValidation=(input,min)=>input.value!=='' && _.toInteger(input.value)>min
+const minimumNumberValidation = (input, min) => input.value !== "" && _.toInteger(input.value) > min;
 
-const minimumArrayValidation=(inputs,min)=>_.size(_.filter(inputs,input=>(input.value && input.value!=='') || input.checked))>min
+const minimumArrayValidation = (inputs, min) => _.size(_.filter(inputs, (input) => input.value && input.value !== "")) > min;
 
-const maximumStringValidation=(input,max)=>{
-    console.log(input.value,max)
-   return _.size(input.value) < max
-} 
+const maximumStringValidation = (input, max) => _.size(input.value) < max;
 
-const maximumNumberValidation=(input,max)=>input.value!=='' && _.toInteger(input.value)<max
+const maximumNumberValidation = (input, max) => input.value !== "" && _.toInteger(input.value) < max;
 
-const maximumArrayValidation=(inputs,max)=>_.size(_.filter(inputs,input=>(input.value && input.value!=='') || input.checked))<max
+const maximumArrayValidation = (inputs, max) => _.size(_.filter(inputs, (input) => input.value && input.value !== "")) < max;
 
 /*Regex*/
-const regexValidation=(input,regex)=>regex.test(input.value)
+const regexValidation = (input, regex) => regex.test(input.value);
 
 /*boolean*/
-const booleanValidation=(inputs)=>_.some(inputs,{checked:true})
+const booleanValidation = (inputs) => _.some(inputs, { checked: true });

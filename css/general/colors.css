@@ -1,12 +1,13 @@
 :root{
---lightMode:linear-gradient(60deg, rgba(235,235,235,1) 0%, rgba(222,209,18,1) 35%, rgba(245,132,52,) 78%);
---darkMode:linear-gradient(60deg, rgba(17,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(91,24,199,1) 78%);  
+--light:linear-gradient(60deg, rgba(235,235,235,1) 0%, rgba(222,209,18,1) 35%, rgba(245,132,52,) 78%);
+--dark:linear-gradient(60deg, rgba(17,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(91,24,199,1) 78%); 
+--modeColor:linear-gradient(60deg, rgba(17,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(91,24,199,1) 78%);
 --contrastColor:#d90858;
 --onHoverContrastColor:#f9a8a8;
 --contrastColorLight:#f6cb3c;
---contrastColorDark:#bb0b46b4;
+--onFocusInputColor:#bb0b46b4;
 --white:rgb(235, 235, 235);
---black:rgba(21, 11, 32, 0.973);
+--black:rgba(21, 11, 32);
 --borderColorError:white;
 --boxShadowCard: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

@@ -2,29 +2,46 @@
 .citiesButton{
     width: 20rem;
     height: 3rem;
-    border-radius: 20px;
     outline: none;
-    border: 8px solid transparent;
-    background: linear-gradient(var(--textColor),var(--textColor)) content-box, var(--darkMode) border-box;
+    border-radius: 5px;
+    border: transparent;
+    background: var(--modeColor);
     font-size: 20px;
-    text-align: center;;
+    text-align: center;
+    cursor: pointer;
 }
 .submitButton {
-        height: 2rem;
-        width: 15rem;
-        background: var(--white);
-        color: var(--black);
-        border-radius: 3%;
-        box-shadow: var(--boxShadowCard);
-        border: none;
+    width: 33rem;
+    height: 3rem;
+    outline: none;
+    border-radius: 5px;
+    border: transparent;
+    background: var(--modeColor);
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--textColor);
 }
 .button{
-    width: 550px;
+        width: 550px;
         height: 50px;
         border-radius: 20px;
         outline: none;
         border: 8px solid transparent;
-        background: linear-gradient(#fff,#fff) content-box, var(--darkMode) border-box;
+        background: linear-gradient(#fff,#fff) content-box, var(--dark) border-box;
         font-size: 20px;
         text-align: center;
+}
+.submitButton:disabled{
+    width: 33rem;
+    height: 3rem;
+    outline: none;
+    border-radius: 5px;
+    border: transparent;
+    background: var(--modeColor);
+    font-size: 20px;
+    text-align: center;
+    cursor: not-allowed;
+    color: var(--textColor);
+    opacity: 0.5;
 }

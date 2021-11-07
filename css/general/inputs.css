@@ -1,36 +1,30 @@
 @import url('./colors.css');
 .inputForm{
-    height:2rem;
-    width:15rem;
-    border-radius: 3%;
-    border:none;
-    box-shadow: var(--boxShadowCard);
-}
+    padding: 1rem;
+     height: 3rem; 
+    width: 33rem;
+    border-radius: 20px;
+    border: none;}
 .textAreaForm{
-    height:10rem;
-    width:15rem;
-    border-radius: 3%;
-    border:none;
-    box-shadow: var(--boxShadowCard);
+    height: 13rem;
+    width: 30rem;
+    border-radius: 5px;
+    border: none;
     resize: none;
 }
-.checkBoxForm{
-    display: flex; 
-    flex-direction: row;
-    grid-gap: 1rem;
+.inputCheckbox{
+    height: 0.7rem;
 }
+
 .inputForm:focus{
-    border:var(--white) solid 2px;
     outline: none;
-    
 }
 .textAreaForm:focus{
-    border:var(--white) solid 2px;
     outline: none;
-    
 }
 .required{
-    border:var(--borderColorError);
+    border:var(--onFocusInputColor) solid 2px;
+    outline: none;
 }
 .required::after{
     content: 'Required';

@@ -1,14 +1,22 @@
 @import url('../general/colors.css');
 .formContainer{
-    margin: 1rem 1rem 1rem 5rem;
+    padding: 1rem 1rem 1rem 5rem;
     display: flex;
     flex-direction: column;
-    grid-gap: 1vh;
+    grid-gap: 1rem;
 }
 .sectionContainer{
-    background: var(--contrastColor);
-    margin-top: 7rem;
-    width: 50vw;
-    height: 60vh;
-    border-radius: 5%;
+    width: 100%;
+    background-color: var(--contrastColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.9;
+    margin-top: 4rem;
+    border-radius: 24px;
+}
+.fieldForm{
+    display: flex;
+    flex-direction: column;
 }

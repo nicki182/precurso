@@ -23,9 +23,10 @@
     align-items: center;
 }
 .buttonText{
-        background: var(--darkMode);
-        background-size: 100%;
-        background-repeat: repeat;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    color: var(--textColor);
+}
+.labelForm{
+    font-family: var(--default-font-family);
+    font-size: 0.7rem;
+    color: var(--textColor);
 }

@@ -6,53 +6,66 @@
     <link href="./css/layouts/layout.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/d4bc4843e4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
-
-
   </head>
+
   <body>
     <section>
       <nav class="navigation">
-      <a style="cursor: pointer;" class="nav-item">Home</a>
-      <a href="./pages/about.html" class="nav-item">About</a>
-      <a href="./pages/contact.html" class="nav-item">Contact</a>
+        <a style="cursor: pointer" class="nav-item">Home</a>
+        <a href="./pages/about.html" class="nav-item">About</a>
+        <a href="./pages/contact.html" class="nav-item">Contact</a>
       </nav>
-      
+
       <div class="card">
-        
         <img
           id="profile-image"
           src="./images/code.png"
           alt="Israel Tech Challenge"
           class="profile-image"
           onclick="return animationBackgroundChange()"
-        /> 
+        />
         <div class="info">
-        <i class="fa fa-linkedin"></i>
-        <i class="fa fa-stack-overflow"></i>
-        <i class="fa fa-github"></i>
-      </div>
-        <h1 style="margin-top:1rem ;" id="nicoleStrulavits">ITC Student</h1>
-       
+          <a
+            class="icon"
+            href="https://www.linkedin.com/in/nicole-strulavits-921414194/"
+            target="_blank"
+            ><i class="fa fa-linkedin"></i
+          ></a>
+          <a
+            class="icon"
+            href="https://stackoverflow.com/users/story/13154054"
+            target="_blank"
+            ><i class="fa fa-stack-overflow"></i
+          ></a>
+          <a class="icon" href="https://github.com/nicki182" target="_blank"
+            ><i class="fa fa-github"></i
+          ></a>
+        </div>
+        <h1 style="margin-top: 1rem" id="nicoleStrulavits">ITC Student</h1>
       </div>
     </section>
     <footer>
-      <div id='footerText'></div>
+      <div id="footerText"></div>
     </footer>
     <script src="./js/pages/main.js"></script>
-    <script src="./js/generic/storage.js"></script>
     <script src="./js/generic/document.js"></script>
     <script src="./js/generic/compiler.js"></script>
     <script src="./js/generic/constanst.js"></script>
     <script src="./js/generic/footer.js"></script>
     <script src="./js/generic/mode.js"></script>
     <script src="./js/generic/window.js"></script>
+    <script src="./js/generic/animation/index.js"></script>
+    <script src="./js/generic/animation/fading/fadeIn.js"></script>
+    <script src="./js/generic/animation/fading/fadeOut.js"></script>
+    <script src="./js/generic/animation/fading/fadeOutIn.js"></script>
+    <script src="./js/generic/animation/fading/index.js"></script>
     <script>
-    let initialMode=getMode()
-    if(!initialMode){
-      setMode('dark')
-      initialMode='dark'
-    }
-    setChangesByMode(initialMode)
-   </script>
+      let initialMode = getMode();
+      if (!initialMode) {
+        setMode("dark");
+        initialMode = "dark";
+      }
+      setChangesByMode(initialMode);
+    </script>
   </body>
 </html>

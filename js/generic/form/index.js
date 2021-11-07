@@ -12,32 +12,28 @@ then no harm done because I would reuse the other code I made and make some twea
 var fields;
 var onChange;
 
-const fieldsContructor=(fieldsC)=>_.map(fieldsC,fieldContructor)
+const fieldsContructor = (fieldsC) => _.map(fieldsC, fieldContructor);
 
-const setFields=(fieldsS)=>fields=fieldsContructor(fieldsS)
+const setFields = (fieldsS) => (fields = fieldsContructor(fieldsS));
 
-const setOnChange=(onChangeV)=>onChange=onChangeV
+const setOnChange = (onChangeV) => (onChange = onChangeV);
 
-const validateForm=(field)=>onChange && onChange(_.every(fields,{isValid:true}),field)
+const validateForm = (field) =>
+  onChange && onChange(_.every(fields, { isValid: true }), field);
 
-const validateField=(field)=>{
-    const elementsField=getElementsByName(field.name)
-    if(isEveryFieldValidated(elementsField,field)) _.set(field,"isValid",true)
-    else _.set(field,"isValid",false)
-    console.log(fields,_.every(fields,{isValid:true}),_.every(fields,field=>field.isValid))
-    validateForm(field)
-}
+const validateField = (field) => {
+  const elementsField = getElementsByName(field.name);
+  if (isEveryFieldValidated(elementsField, field)) _.set(field, "isValid", true);
+  else _.set(field, "isValid", false);
+  validateForm(field);
+};
 
-const createFields=(fieldsToValidate)=>{
-    setFields(fieldsToValidate)
-    _.forEach(fields,field=>{
-    const elementsField=document.querySelectorAll(`[name="${field.name}"]`)
-    elementsField.forEach(element=>{
-        setElementEventListener(element,"change",()=>validateField(field))
-    })
-    })
-}
-
-
-
-
+const createFields = (fieldsToValidate) => {
+  setFields(fieldsToValidate);
+  _.forEach(fields, (field) => {
+    const elementsField = document.querySelectorAll(`[name="${field.name}"]`);
+    elementsField.forEach((element) => {
+      setElementEventListener(element, "change", () => validateField(field));
+    });
+  });
+};
