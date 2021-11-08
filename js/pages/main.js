@@ -7,6 +7,8 @@ fetch(GITHUB_URL)
   .then((data) => {
     const profileImage = getElementById("profile-image");
     setElementSrc(data.avatar_url, profileImage);
+    const name=getElementById("myName");
+    setElementID(name,data.name);
   });
 /*Initial variables*/
 let mode;

@@ -1,4 +1,15 @@
 var i = 0;
+const citiesILived = ["AVENTURA"];
+
+const cityILive ="BUENOS_AIRES"
+
+const citiesIWishToVisit = ["PARIS", "PINSK"];
+
+const cityILivedText = "The city I have lived...";
+
+const cityILiveText = "The city I live...";
+
+const cityIWishToVisitText = "The city I wish to visit...";
 
 const moveNext2 = () => {
   const elementNext2 = getElementById("next_2");
@@ -14,9 +25,15 @@ const moveNext3 = () => {
 
 const setCity = (city) => {
   const url = _.get(cityURL, city, "");
-  const maps = getElementById("gmap_canvas");
+  const maps = getElementById("maps");
+  const cityTitle = getElementById("cityTitle");
+  
   setElementSrc(url, maps);
-};
+
+  if (_.includes(citiesILived, city)) setElementInnerText(cityTitle, cityILivedText);
+  else if(_.includes(citiesIWishToVisit,city)) setElementInnerText(cityTitle, cityIWishToVisitText);
+  else setElementInnerText(cityTitle, cityILiveText); 
+}; 
 
 const takeOutNextButton = () => {
   const nextButton = getElementById("next_button");

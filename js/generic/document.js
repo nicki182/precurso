@@ -71,6 +71,8 @@ const setContrastColorByMode = (mode) => {
     );
 };
 
-function getElementsByAttrib(attrib) {
+const getElementsByAttrib = (attrib) => {
   return document.querySelectorAll("[" + attrib + "]");
 }
+
+const setElementID = (element, id) => (element.id = id);
