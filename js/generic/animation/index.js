@@ -1,7 +1,7 @@
 /*Animation initial values*/
 let start = 0,
   previousTimeStamp = 0,
-  animationTime = 5000;
+  animationTime = 1250;
 let animation = null;
 /*When animation ends event*/
 let onEnding;

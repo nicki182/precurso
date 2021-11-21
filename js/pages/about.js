@@ -1,7 +1,7 @@
-var i = 0;
+let i = 0;
 const citiesILived = ["AVENTURA"];
 
-const cityILive ="BUENOS_AIRES"
+const cityILive ="BUENOS_AIRES";
 
 const citiesIWishToVisit = ["PARIS", "PINSK"];
 

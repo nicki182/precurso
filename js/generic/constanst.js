@@ -21,7 +21,7 @@ const labelLeguages = {
 };
 
 /*Maps constast*/
-const cities = ["BUENOS_AIRES", "AVENTURA", "PARIS", "PINSK"];
+const cities = [{code:"BUENOS_AIRES",url:'dasdsa',label:'Buenos Aires', neighoods:['Villla Ortuzzar','Belgrano']} , "AVENTURA", "PARIS", "PINSK"];
 
 const cityURL = {
   BUENOS_AIRES:
