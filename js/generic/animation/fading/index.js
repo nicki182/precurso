@@ -1,5 +1,5 @@
 /*How much opacity is chaging by frame*/
-let opacityChangeBy = 0.005;
+let opacityChangeBy = 0.015;
 /*Seter funtions*/
 const setOpacityChangeBy = (opacity) => {
   opacityChangeBy = opacity;
