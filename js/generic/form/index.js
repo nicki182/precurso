@@ -14,7 +14,7 @@ var onChange;
 
 const fieldsContructor = (fieldsC) => _.map(fieldsC, fieldContructor);
 
-const setFields = (fieldsS) => (fields = fieldsS);
+const setFields = (fieldsS) => (fields = fieldsContructor(fieldsS));
 
 const setOnChange = (onChangeV) => (onChange = onChangeV);
 
